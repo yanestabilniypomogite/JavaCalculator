@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import static java.lang.Integer.parseInt;
 import static java.lang.System.exit;
 
 public class CalculatorClass {
@@ -11,35 +12,40 @@ public class CalculatorClass {
     public static void inputNumbers() {
         System.out.println("Введите первое число:");
         firstNum = inputCheck();
+        System.out.println(firstNum);
         System.out.println("Введите второе число:");
         secondNum = inputCheck();
+        System.out.println(secondNum);
     }
 
     public static int inputCheck() {
             try {
-                num = in.nextInt();
+                num = parseInt(in.nextLine());
             } catch (Exception e) {
                 System.out.println("Некорректные данные. На ввод разрешены только цифры!");
-                exit(1);
             }
         return num;
     }
     public static void sumMethod() {
+        System.out.println("Вы выбрали сложение!\n");
         inputNumbers();
         System.out.println("Ответ:\n" + (firstNum + secondNum));
     }
 
     public static void diffMethod() {
+        System.out.println("Вы выбрали вычитание!\n");
         inputNumbers();
         System.out.println("Ответ:\n" + (firstNum - secondNum));
     }
 
     public static void multMethod() {
+        System.out.println("Вы выбрали умножение!\n");
         inputNumbers();
         System.out.println("Ответ:\n" + (firstNum * secondNum));
     }
 
     public static void divMethod() {
+        System.out.println("Вы выбрали деление!\n");
         inputNumbers();
         System.out.println("Ответ:\n" + ((double) firstNum / (double) secondNum));
     }
@@ -47,7 +53,7 @@ public class CalculatorClass {
     public static void isEven() {
         int evenNum;
         boolean isEven;
-        System.out.println("Введите число для проверки:");
+        System.out.println("Определение четности числа!\nВведите число для проверки:");
         evenNum = inputCheck();
         isEven = evenNum % 2 == 0;
         if (isEven) {
