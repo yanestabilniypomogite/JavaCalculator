@@ -23,12 +23,12 @@ public class CalculatorClass {
     }
 
     public static int inputCheck() {
-            try {
-                num = parseInt(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Некорректные данные. На ввод разрешены только цифры!");
-                num = -1;
-            }
+        try {
+            num = parseInt(in.nextLine());
+        } catch (Exception e) {
+            System.out.println("Некорректные данные. На ввод разрешены только цифры!");
+            num = -2147483648;
+        }
         return num;
     }
     public static void sumMethod() {
@@ -56,10 +56,13 @@ public class CalculatorClass {
     }
 
     public static void isEven() {
-        int evenNum;
+        num = -2147483648;
+        int evenNum = num;
         boolean isEven;
         System.out.println("Определение четности числа!\nВведите число для проверки:");
-        evenNum = inputCheck();
+        while (num == -2147483648) {
+            evenNum = inputCheck();
+        }
         isEven = evenNum % 2 == 0;
         if (isEven) {
             System.out.println("Число " + evenNum + " четное");
