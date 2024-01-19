@@ -1,21 +1,25 @@
 import java.util.Scanner;
 import static java.lang.Integer.parseInt;
-import static java.lang.System.exit;
 
 public class CalculatorClass {
-    public static Scanner in = new Scanner(System.in);
-    public static int firstNum;
-    public static int secondNum;
-    public static boolean retry = true;
-    public static int num;
+    static Scanner in = new Scanner(System.in);
+    static int firstNum;
+    static int secondNum;
+    static boolean retry = true;
+    static int num;
 
     public static void inputNumbers() {
+        num = -2147483648;
         System.out.println("Введите первое число:");
-        firstNum = inputCheck();
-        System.out.println(firstNum);
+        while (num == -2147483648) {
+            firstNum = inputCheck();
+        }
+        num = -2147483648;
         System.out.println("Введите второе число:");
-        secondNum = inputCheck();
-        System.out.println(secondNum);
+        while (num == -2147483648) {
+            secondNum = inputCheck();
+        }
+
     }
 
     public static int inputCheck() {
@@ -23,6 +27,7 @@ public class CalculatorClass {
                 num = parseInt(in.nextLine());
             } catch (Exception e) {
                 System.out.println("Некорректные данные. На ввод разрешены только цифры!");
+                num = -1;
             }
         return num;
     }
